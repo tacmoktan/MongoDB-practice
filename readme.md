@@ -43,7 +43,7 @@ npm install mongoose
 * **Steps**:
     1. create **models** folder in root directory.
     2. create a `someModel.js` within the folder.  
-For eg. look for `models/mariochar.js` file. 
+For eg. look for [models/mariochar.js](models/mariochar.js) file. 
 
 ### 6. Mocha Testing
 * a testing framework to test CRUD operations in db.
@@ -58,7 +58,7 @@ npm install mocha --save
 ```
 npm run test
 ```  
-* For e.g. look for `test/connection.js` file.  
+* For e.g. look for [test/connection.js](test/connection.js) file.  
 **NOTE:** All the `.js` files within **test** folder will run at once. However, tests created will only run after creating connection with db. ( because of the hooks used like before, beforeEach in `connection.js` ).
 
 ### 7. Robomongo (Rob 3T)
@@ -69,13 +69,13 @@ npm run test
 * `<modelInstanceName>.save()` method is used to save a record (instance of a model).  
 * This method is asynchronous so it returns promise ( future data ).
 * Also we load `assert` function that takes *boolean* argument to confirm failing or passing of test. i.e. true = pass, false = fail.  
-For e.g. look for `test/saving_test.js` file. 
+For e.g. look for [test/saving_test.js](test/saving_test.js) file. 
 
 ### 9. Dropping a Collection
 * Dropping collection refers to dropping the same replicated data from the model.
 * Same data/record can be stored separately in mongodb because mongodb automatically provides an ObjectID to each record.
 * So inorder to only have unique & non-redundant data in db, we **drop collection**.  
-For e.g. look for `beforeEach()` method in `test/connection.js` file.
+For e.g. look for `beforeEach()` method in [test/connection.js](test/connection.js) file.
 
 
 ### 10. Finding Records (with field name or id)
@@ -86,7 +86,7 @@ For e.g. look for `beforeEach()` method in `test/connection.js` file.
 
 * **Field name:** ( name, weight or any other field ) in the model.
 * **Object ID:** ( _id ) is the default objectID assigned to each record. Can be viewed with tool like RoboMongo.  
-For e.g. look for `test/finding_test.js` file.
+For e.g. look for [test/finding_test.js](test/finding_test.js) file.
 
 ### 11. Deleting Records
 * Methods used to delete records:
@@ -98,7 +98,7 @@ Steps
   1. Create and save an instance in the db. (since, initially db might be empty by dropping collection)
   2. Use a method to find and remove the instance.
   3. To assure if instance has been deleted, use a method to find the deleted instance in db. If promise/ record/ data returned equals to null then we passed the test.  
-  For e.g. look for `test/deleting_test.js` file.
+  For e.g. look for [test/deleting_test.js](test/deleting_test.js) file.
 
 ### 12. Updating Records & Update operators
 * Methods used to update Records:
@@ -116,7 +116,7 @@ Steps
    1. Create and save an instance in db.
    2. Use a method to update the instance.
    3. To assure if instance has been updated, use a method to find that instance. If promise returned has the field value updated we pass the test.  
-   For e.g. look for `test/updating_test.js` file.
+   For e.g. look for [test/updating_test.js](test/updating_test.js) file.
 
 ### 13. 
 
