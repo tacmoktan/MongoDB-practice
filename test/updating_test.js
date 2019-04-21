@@ -23,8 +23,10 @@ describe("Updating record(s)", function(){
     //test(1) using updating methods(functions)
     it("updates one record in db", function(done){
         //find char with name 'Mario' and update it with name 'Luigi'
-        MarioCharModel.findOneAndUpdate( {name: 'Mario'} , {name:'Luigi'} ).then(function(){
 
+        //.findOneAndUpdate() show suggestions like .findOneAndReplace() for deprecated methods  while running test
+        MarioCharModel.findOneAndReplace( {name: 'Mario'} , {name:'Luigi'} ).then(function(){
+            
             MarioCharModel.findOne( {_id: char._id } ).then(function(result){     //finds a char by id ( Luigi's id ) 
                 assert( result.name === 'Luigi' );      
                 done();
@@ -35,7 +37,9 @@ describe("Updating record(s)", function(){
     //test(2) using update operator
     it("increments the weight by 1 in all records", function(done){
         //{} denotes all records, $inc is update operator
-        MarioCharModel.update( {}, { $inc : {weight: 1}} ).then( function() {
+        
+        //.update() method show suggestions like .updateMany() for deprecated methods while running test 
+        MarioCharModel.updateMany( {}, { $inc : {weight: 1}} ).then( function() {
             
             //to check if the weight is incremented
             MarioCharModel.findOne( {name:'Mario'} ).then( function( record ) {

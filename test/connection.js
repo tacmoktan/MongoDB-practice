@@ -6,7 +6,7 @@ const  mongoose = require('mongoose');
 //using before, beforeEach hooks
 
 //connect to the db before tests run
-before (function (done){
+before(function (done){
     mongoose.connect('mongodb://localhost/database1', { useNewUrlParser:true } );      //creates connection
     mongoose.connection.once('open', function() {       //to get notified when connection is created (like event listener)
        
@@ -22,7 +22,7 @@ before (function (done){
 //beforeEach to Drop collections/replications( of same data ) i.e. to keep unique data only
 
 //drop or remove characters collection (Mario Character) before each tests
-beforeEach (function(done){
+beforeEach(function(done){
     
     //drop collection of mariochars
     mongoose.connection.collections.mariochars.drop(function(){

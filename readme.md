@@ -32,7 +32,7 @@ For More Details: [MongoDB Documentation](https://docs.mongodb.com/manual/tutori
 ```
 npm init --yes
 ```
-* install mongoose (adds dependencies to `package.json`)
+* install mongoose (adds dependencies to [package.json](package.json))
 ```
 npm install mongoose
 ```
@@ -51,15 +51,16 @@ For eg. look for [models/mariochar.js](models/mariochar.js) file.
 npm install mocha --save
 ```  
 * **Steps**
-    1. In `package.json` , assign **mocha** (value) to the **test** (key).
+    1. In [package.json](package.json) , assign **mocha** (value) to the **test** (key).
     2. create a **test** folder in root directory.
-    3. Within **test** folder, create a `connection.js` file to connect with mongodb (database) before running tests.  
-    4. To run test, locate root directory and enter following command:
+    3. Within **test** folder, create a `connection.js` file to connect with mongodb (database).   
+    4. Before running tests, start the mongoDB database using commands mentioned in **Start MongodDB** Step.
+    5. To run test, locate root directory and enter following command:
 ```
 npm run test
 ```  
 * For e.g. look for [test/connection.js](test/connection.js) file.  
-**NOTE:** All the `.js` files within **test** folder will run at once. However, tests created will only run after creating connection with db. ( because of the hooks used like before, beforeEach in `connection.js` ).
+* **NOTE:** All the `.js` files within **test** folder will run at once. However, tests created will only run after creating connection with db. ( because of the hooks used like before, beforeEach in `connection.js` ).
 
 ### 7. Robomongo (Rob 3T)
 * simple tool with GUI to visually represent the database created with mongodb.
@@ -89,11 +90,14 @@ For e.g. look for `beforeEach()` method in [test/connection.js](test/connection.
 For e.g. look for [test/finding_test.js](test/finding_test.js) file.
 
 ### 11. Deleting Records
-* Methods used to delete records:
+* Methods used to delete records:  
+    
     * `<modelInstanceName>.remove()`    : removes a record.
     * `<modelName>.remove()`            : removes all records.    
     * `<modelName>.findOneAndRemove()`  : removes first record out of several which matches criteria.
+
 * **Note:** Some methods might be deprecated so use the methods suggested in command console.  
+
 Steps  
   1. Create and save an instance in the db. (since, initially db might be empty by dropping collection)
   2. Use a method to find and remove the instance.
@@ -102,6 +106,7 @@ Steps
 
 ### 12. Updating Records & Update operators
 * Methods used to update Records:
+
     * `<modelInstanceName>.update()`    : updates a record.
     * `<modelName>.update()`            : updates all records.
     * `<modelName>.findOneAndUpdate()`  : updates first record out of several which matches criteria.
@@ -118,6 +123,11 @@ Steps
    3. To assure if instance has been updated, use a method to find that instance. If promise returned has the field value updated we pass the test.  
    For e.g. look for [test/updating_test.js](test/updating_test.js) file.
 
-### 13. 
+### 13. Relational Data
+* One model can have relationships with another model. ( like Book & Author, Movie & Actor )
+For e.g. [models/author.js](models/author.js) 
 
-### 14. 
+### 14. Nesting Documents
+* It refers to adding document within a document.
+* We can also manipulate(add, update, delete) a sub-document to or from the array of sub-documents within an instance/ document/ record.  
+For e.g. [test/nesting_test.js](test/nesting_test.js)
